@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
+import { GButton } from "@/components/GButton";
+
+const logHi = () => {
+  console.log("hi");
+};
 </script>
 
 <template>
@@ -19,7 +23,7 @@ import TheWelcome from "./components/TheWelcome.vue";
   </header>
 
   <main>
-    <TheWelcome />
+    <GButton @click="logHi">hello</GButton>
   </main>
 </template>
 
