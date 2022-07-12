@@ -58,5 +58,6 @@
       "require": "./lib/gvcl.umd.js"
     },
     "./style.css": "./lib/style.css"
-  }
+  },
+  "types": "./lib/types/index.d.ts"
 }
