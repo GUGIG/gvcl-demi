@@ -5,6 +5,13 @@
     "name": "gugig",
     "url": "https://github.com/GUGIG"
   },
+  "keywords": [
+    "vue",
+    "vue component",
+    "vue-demi",
+    "vue 2",
+    "vue 3"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
