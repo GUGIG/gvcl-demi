@@ -1,0 +1,13 @@
+/.vscode
+/node_modules
+/public
+/src
+/.eslintrc.cjs
+/.gitignore
+/.npmignore
+/env.d.ts
+/index.html
+/tsconfig.config.json
+/tsconfig.json
+/vite.config.ts
+/yarn.lock
