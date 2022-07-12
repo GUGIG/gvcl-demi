@@ -1,46 +1,88 @@
 # gvcl-demi
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a demo Vue component library compatible with both Vue 2 & Vue 3 via `vue-demi` & vue's render function.  
+  
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+## Test out my library
+### Install
+```bash
+npm install gvcl-demi
 ```
 
-### Compile and Hot-Reload for Development
+### Apply library's style globally
+```JavaScript
+// Vue 3 App
+// main.js(ts)
 
-```sh
-npm run dev
+import { createApp } from "vue";
+import App from "./App.vue";
+
+// Apply library's style globally
+import "gvcl-demi/style.css";
+
+createApp(App).mount("#app");
+```
+```JavaScript
+// Vue 2 App
+// main.js(ts)
+
+import Vue from "vue";
+import App from "./App.vue";
+
+// Apply library's style globally
+import "gvcl-demi/style.css";
+
+Vue.config.productionTip = false;
+
+new Vue({
+  render: function (h) {
+    return h(App);
+  },
+}).$mount("#app");
+
 ```
 
-### Type-Check, Compile and Minify for Production
+### Use the button component
+```HTML
+<!-- Vue 3 -->
+<script setup>
+import { GButton } from "gvcl-demi";
+const onClick = () => {
+  console.log("hey!");
+}
+</script>
 
-```sh
-npm run build
+<template>
+  <h1>test</h1>
+  <GButton color="positive" @click="onClick">
+    click me
+  </GButton>
+</template>
+```
+```HTML
+<!-- Vue 2 -->
+<template>
+  <div>
+    <h1>test</h1>
+    <GButton color="positive" @click="onClick">
+      click me
+    </GButton>
+  </div>
+</template>
+
+<script>
+import { GButton } from "gvcl-demi";
+export default {
+  components: {
+    GButton,
+  },
+  methods: {
+    onClick() {
+      console.log("hey!");
+    }
+  }
+}
+</script>
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+As shown above, this component should work in both Vue 3 & Vue 2 apps thanks to `vue-demi` & usage of render function (with some ugly syntax mix which you can check further in [this comment](https://github.com/vueuse/vue-demi/issues/152#issuecomment-1175681274)).
