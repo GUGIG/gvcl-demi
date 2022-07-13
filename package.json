@@ -5,6 +5,10 @@
     "name": "gugig",
     "url": "https://github.com/GUGIG"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GUGIG/gvcl-demi.git"
+  },
   "keywords": [
     "vue",
     "vue component",
