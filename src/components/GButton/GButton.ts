@@ -8,7 +8,7 @@ import {
   getCurrentInstance,
 } from "vue-demi";
 
-import type { ButtonTypes, ButtonColors } from "@/components/types/ButtonTypes";
+import type { ButtonTypes, ButtonColors } from "../types/ButtonTypes";
 
 export const GButton = defineComponent({
   name: "GButton",

@@ -1,4 +1,3 @@
-import { fileURLToPath, URL } from "url";
 import path from "path";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
@@ -8,11 +7,6 @@ import typescript from "@rollup/plugin-typescript";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  resolve: {
-    alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
-    },
-  },
   build: {
     outDir: "./lib",
     lib: {
@@ -21,14 +15,10 @@ export default defineConfig({
       fileName: (format) => `gvcl.${format}.js`,
     },
     rollupOptions: {
+      external: ["vue-demi"],
       plugins: [
         peerDepsExternal(),
-        typescript({
-          tsconfig: "./tsconfig.json",
-          include: ["src/components/**/*"],
-          declaration: true,
-          declarationDir: "lib/types",
-        }),
+        typescript({ include: ["src/components/**/*"] }),
       ],
     },
   },

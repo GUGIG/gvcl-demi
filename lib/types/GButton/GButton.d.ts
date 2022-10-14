@@ -1,6 +1,6 @@
 import "./style.scss";
 import { type PropType } from "vue-demi";
-import type { ButtonTypes, ButtonColors } from "@/components/types/ButtonTypes";
+import type { ButtonTypes, ButtonColors } from "../types/ButtonTypes";
 export declare const GButton: import("vue-demi").DefineComponent<{
     loading: {
         type: BooleanConstructor;
